@@ -1,0 +1,32 @@
+{
+  "name": "rat-usd-feed",
+  "version": "1.0.0",
+  "description": "RAT / USD price feed on HyperEVM, Chainlink compatible (AggregatorV2V3Interface), guarded by the HyperCore order book",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "compile": "hardhat --config hardhat.config.cjs compile",
+    "test": "hardhat --config hardhat.config.cjs test && node --test reporter/test/",
+    "test:contract": "hardhat --config hardhat.config.cjs test",
+    "test:reporter": "node --test reporter/test/",
+    "check:live": "hardhat --config hardhat.config.cjs compile --quiet && node scripts/check-live.mjs",
+    "deploy:mainnet": "hardhat --config hardhat.config.cjs run scripts/deploy.cjs --network hyperevm",
+    "verify:mainnet": "hardhat --config hardhat.config.cjs run scripts/verify.cjs --network hyperevm",
+    "reporter": "node reporter/reporter.mjs"
+  },
+  "dependencies": {
+    "dotenv": "16.6.1",
+    "ethers": "6.17.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "2.1.2",
+    "@nomicfoundation/hardhat-ethers": "3.1.3",
+    "@nomicfoundation/hardhat-verify": "^2.1.3",
+    "@openzeppelin/contracts": "5.6.1",
+    "chai": "4.5.0",
+    "hardhat": "2.29.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
